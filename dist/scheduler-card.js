@@ -1518,7 +1518,7 @@ class Ts extends class{constructor(e){}get _$AU(){return this._$AM._$AU}_$AT(e,t
         text-align: center;
       }
     `}};t([de()],bo.prototype,"_config",void 0),t([ce()],bo.prototype,"_params",void 0),t([de()],bo.prototype,"editItem",void 0),t([de({type:Boolean,reflect:!0})],bo.prototype,"large",void 0),t([ce()],bo.prototype,"_currTab",void 0),bo=t([re("scheduler-editor-dialog")],bo);var ko=Object.freeze({__proto__:null,get SchedulerEditorDialog(){return bo}});let wo=class extends oe{constructor(){super(...arguments),this.scheduleEntities=[],this._cardTab=0,this.selectedDomain=""}setConfig(e){this._config=e}async firstUpdated(){await uo(),this.scheduleEntities=(await ft(this.hass)).map(e=>e.entity_id);const e=(await kt(this.hass)).map(e=>e.name);e.sort(it),this.tagOptions=e}render(){return this.hass&&this._config?q`
-      <sl-tab-group .selected=${this._cardTab?1:0} @iron-activate=${this._selectTab}>
+      <sl-tab-group .selected=${this._cardTab?1:0} @sl-tab-show=${this._selectTab}>
         <sl-tab
           slot="nav"
           panel="0"
@@ -1528,7 +1528,7 @@ class Ts extends class{constructor(e){}get _$AU(){return this._$AM._$AU}_$AT(e,t
         </sl-tab>
         <sl-tab
           slot="nav"
-          panel="0"
+          panel="1"
           .active=${1===this._cardTab}
         >
           ${Ya("ui.panel.card_editor.tabs.other",rt(this.hass))}
