@@ -54,7 +54,10 @@ export class SchedulerCardEditor extends LitElement implements LovelaceCardEdito
     }
 
     return html`
-      <sl-tab-group .selected=${this._cardTab ? 1 : 0} @iron-activate=${this._selectTab}>
+      <sl-tab-group
+        .selected=${this._cardTab ? 1 : 0}
+        @sl-tab-show=${this._selectTab}
+      >
         <sl-tab
           slot="nav"
           panel="0"
@@ -64,7 +67,7 @@ export class SchedulerCardEditor extends LitElement implements LovelaceCardEdito
         </sl-tab>
         <sl-tab
           slot="nav"
-          panel="0"
+          panel="1"
           .active=${this._cardTab === 1}
         >
           ${localize('ui.panel.card_editor.tabs.other', getLocale(this.hass))}
